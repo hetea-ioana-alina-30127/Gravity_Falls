@@ -4,6 +4,7 @@ package aut.utcluj.isp.ex1;
  * @author stefan
  */
 public class Shop {
+    //comentariu
     private String name;
     private String city;
 
