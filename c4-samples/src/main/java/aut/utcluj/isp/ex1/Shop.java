@@ -1,5 +1,5 @@
 package aut.utcluj.isp.ex1;
-
+//verify
 /**
  * @author stefan
  */
