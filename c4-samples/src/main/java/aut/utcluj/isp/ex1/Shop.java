@@ -3,6 +3,8 @@ package aut.utcluj.isp.ex1;
 /**
  * @author stefan
  */
+// comentariu pentru verificare
+
 public class Shop {
     //comentariu
     private String name;
