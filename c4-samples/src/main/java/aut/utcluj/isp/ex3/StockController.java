@@ -1,12 +1,12 @@
 package aut.utcluj.isp.ex3;
 
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 /**
  * @author stefan
  */
 public class StockController {
+    static int numberProducts=0;
+    private List<Product> listProducts= new ArrayList<Product>();
     /**
      * Add product to catalogue
      *
@@ -14,8 +14,10 @@ public class StockController {
      * @param quantity - number of times the product should be added
      * @apiNote: if products with the same products id already exists, assume that @param product has the same data
      */
-    public void addProductToCatalogue(final Product product, final int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void addProductToCatalogue(final Product product,final int quantity) {
+        this.numberProducts=numberProducts+quantity;
+        for(int i=1;i<=quantity;i++)
+        this.listProducts.add(Product);
     }
 
     /**
@@ -34,7 +36,12 @@ public class StockController {
      * @return - list of existing products with same id or null if not found
      */
     public List<Product> getProductsWithSameId(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Product> newListProducts= new Array List<Product>();
+        for(List<Product> ss: listProducts){
+            if(ss.getId.equals(productId))
+                newListProducts.add(ss);
+        }
+        return newListProducts;
     }
 
     /**
@@ -43,7 +50,7 @@ public class StockController {
      * @return
      */
     public int getTotalNumberOfProducts() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return numberProducts;
     }
 
     /**
@@ -53,7 +60,18 @@ public class StockController {
      * @return true if at least one product was deleted or false instead
      */
     public boolean removeAllProductsWitProductId(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean ok=false;
+        Product ss1;
+        int i=0;
+        for(List<Product> ss: listProducts){
+            if(ss.getId.equals(productId)){
+                ss1=ss;
+
+                ok=true;
+            }
+        i++;
+        }
+            return ok;
     }
 
     /**
@@ -64,6 +82,12 @@ public class StockController {
      * @return true if at least one product was updated or false instead
      */
     public boolean updateProductPriceByProductId(final String productId, final Double price) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean ok=false;
+        for(List<Product> ss: listProducts){
+            if(ss.getId.equals(productId)){
+                ss.setPriece(priece);
+                ok=true;
+            }
+            return ok;
     }
 }
