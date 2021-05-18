@@ -2,13 +2,11 @@ package aut.utcluj.isp.ex4;
 
 import java.util.List;
 
-/**
- * @author stefan
- */
-public class UserCart {
+public class UserCart implements ICartDetails{
     private List<Product> cardProducts;
     private double totalPrice;
-
+   
+    
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -24,7 +22,11 @@ public class UserCart {
      * @param quantity - number of products of the same type to be added
      */
     public void addProductToCart(final Product product, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+           
+           product.setQuatity(quantity);
+           cardProducts.add(product);
+           totalPrice += product.getPrice();
+
     }
 
     /**
@@ -34,7 +36,12 @@ public class UserCart {
      * @param productId - unique product id
      */
     public void removeProductFromCart(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Product i: cardProducts) {
+            if(i.getProductId().equals(productId)){
+                totalPrice -= i.getPrice();
+                cardProducts.remove(i);
+            }
+        }
     }
 
     /**
@@ -42,6 +49,16 @@ public class UserCart {
      * Reset products and total price to default values
      */
     public void resetCart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        cardProducts.removeAll(cardProducts);
+        totalPrice = 0;
+    }
+
+    @Override
+    public String getCartDetails() {
+        String cartDetails = null;
+        for(Product i: cardProducts) {
+            cartDetails = "Product Id: " + i.getProductId() + " Items: " + i.getQuatity() + "\n";
+        }
+        return cartDetails;
     }
 }

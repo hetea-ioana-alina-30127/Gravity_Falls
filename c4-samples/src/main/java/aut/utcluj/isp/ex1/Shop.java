@@ -24,4 +24,5 @@ public class Shop {
     public String getCity() {
         return city;
     }
+    ///HACUNA MATATA
 }
